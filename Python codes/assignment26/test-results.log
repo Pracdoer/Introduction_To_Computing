@@ -1,0 +1,42 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment26, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 5 items
+
+test_student.py ...F.
+
+=================================== FAILURES ===================================
+_____________________________ test_get_nth_prime_1 _____________________________
+
+    def test_get_nth_prime_1():
+>       out = get_nth_prime(2.1)
+
+test_student.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a06.py:36: in get_nth_prime
+    if is_prime(num):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = 13015
+
+    def is_prime(x):
+        if x >= 2:
+            a=int(x)
+            if a==x:
+>               for y in range(2,a):
+E               Failed: Timeout >3.0s
+
+a06.py:19: Failed
+====================== 1 failed, 4 passed in 3.16 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment26, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 5 items
+
+test_student.py .....
+
+=========================== 5 passed in 0.04 seconds ===========================

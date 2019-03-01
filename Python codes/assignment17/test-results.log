@@ -1,0 +1,1180 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 23 items
+
+test_student.py ...................FFFF
+
+=================================== FAILURES ===================================
+_______________________________ test_sgpa_int_1 ________________________________
+
+    def test_sgpa_int_1():
+>       assert abs(calculate_sgpa('A', 'A', 'C') - 3.3333) < epsilon
+E       NameError: global name 'calculate_sgpa' is not defined
+
+test_student.py:108: NameError
+_______________________________ test_sgpa_int_2 ________________________________
+
+    def test_sgpa_int_2():
+>       assert abs(calculate_sgpa('F', 'F', 'F') - 0) < epsilon
+E       NameError: global name 'calculate_sgpa' is not defined
+
+test_student.py:112: NameError
+_______________________________ test_sgpa_int_3 ________________________________
+
+    def test_sgpa_int_3():
+>       assert abs(calculate_sgpa('A', 'C', 'F') - 2.0) < epsilon
+E       NameError: global name 'calculate_sgpa' is not defined
+
+test_student.py:116: NameError
+_______________________________ test_sgpa_int_4 ________________________________
+
+    def test_sgpa_int_4():
+>       assert abs(calculate_sgpa('F', 'F', 'nothing') - 0) < epsilon
+E       NameError: global name 'calculate_sgpa' is not defined
+
+test_student.py:120: NameError
+===================== 4 failed, 19 passed in 0.31 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 23 items
+
+test_student.py ...................FFFF
+
+=================================== FAILURES ===================================
+_______________________________ test_sgpa_int_1 ________________________________
+
+    def test_sgpa_int_1():
+>       assert abs(calculate_sgpa('A', 'A', 'C') - 3.3333) < epsilon
+E       NameError: global name 'calculate_sgpa' is not defined
+
+test_student.py:108: NameError
+_______________________________ test_sgpa_int_2 ________________________________
+
+    def test_sgpa_int_2():
+>       assert abs(calculate_sgpa('F', 'F', 'F') - 0) < epsilon
+E       NameError: global name 'calculate_sgpa' is not defined
+
+test_student.py:112: NameError
+_______________________________ test_sgpa_int_3 ________________________________
+
+    def test_sgpa_int_3():
+>       assert abs(calculate_sgpa('A', 'C', 'F') - 2.0) < epsilon
+E       NameError: global name 'calculate_sgpa' is not defined
+
+test_student.py:116: NameError
+_______________________________ test_sgpa_int_4 ________________________________
+
+    def test_sgpa_int_4():
+>       assert abs(calculate_sgpa('F', 'F', 'nothing') - 0) < epsilon
+E       NameError: global name 'calculate_sgpa' is not defined
+
+test_student.py:120: NameError
+===================== 4 failed, 19 passed in 0.24 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 0 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a04 import get_grade, calculate_sgpa
+E     File "/home/mehboob/Desktop/assignment17/a04.py", line 35
+E       def calculate_sgpa("A","B","nothing"):
+E                            ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.77 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 0 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a04 import get_grade, calculate_sgpa
+E     File "/home/mehboob/Desktop/assignment17/a04.py", line 35
+E       def calculate_sgpa("A","B","nothing"):
+E                            ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.76 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 0 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a04 import get_grade, calculate_sgpa
+E     File "/home/mehboob/Desktop/assignment17/a04.py", line 59
+E       def calculate_sgpa("A","B","nothing"):
+E                            ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.74 seconds ============================
+============================================================= test session starts ==============================================================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 0 items / 1 errors
+
+==================================================================== ERRORS ====================================================================
+_______________________________________________________ ERROR collecting test_student.py _______________________________________________________
+../../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a04 import get_grade, calculate_sgpa
+E     File "/home/mehboob/Desktop/assignment17/a04.py", line 8
+E       if total_marks in range(86,91):
+E        ^
+E   IndentationError: expected an indented block
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+=========================================================== 1 error in 0.85 seconds ============================================================
+============================================================= test session starts ==============================================================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 23 items
+
+test_student.py .FFFFFFFFFFFFFFFFF.F.F.
+
+=================================================================== FAILURES ===================================================================
+_______________________________________________________________ test_grade_int_2 _______________________________________________________________
+
+    def test_grade_int_2():
+        score = 86
+>       assert get_grade(score) == 'A'
+E       AssertionError: assert 'A+' == 'A'
+E         - A+
+E         + A
+
+test_student.py:15: AssertionError
+_______________________________________________________________ test_grade_int_3 _______________________________________________________________
+
+    def test_grade_int_3():
+        score = 89
+>       assert get_grade(score) == 'A'
+E       AssertionError: assert 'A+' == 'A'
+E         - A+
+E         + A
+
+test_student.py:19: AssertionError
+______________________________________________________________ test_grade_int_4a _______________________________________________________________
+
+    def test_grade_int_4a():
+        score = 85
+>       assert get_grade(score) == 'A-'
+E       AssertionError: assert 'A' == 'A-'
+E         - A
+E         + A-
+
+test_student.py:24: AssertionError
+______________________________________________________________ test_grade_int_4b _______________________________________________________________
+
+    def test_grade_int_4b():
+        score = 82
+>       assert get_grade(score) == 'A-'
+E       AssertionError: assert 'A' == 'A-'
+E         - A
+E         + A-
+
+test_student.py:28: AssertionError
+______________________________________________________________ test_grade_int_5a _______________________________________________________________
+
+    def test_grade_int_5a():
+        score = 81
+>       assert get_grade(score) == 'B+'
+E       AssertionError: assert 'A-' == 'B+'
+E         - A-
+E         + B+
+
+test_student.py:32: AssertionError
+______________________________________________________________ test_grade_int_5b _______________________________________________________________
+
+    def test_grade_int_5b():
+        score = 78
+>       assert get_grade(score) == 'B+'
+E       AssertionError: assert 'A-' == 'B+'
+E         - A-
+E         + B+
+
+test_student.py:36: AssertionError
+______________________________________________________________ test_grade_int_6a _______________________________________________________________
+
+    def test_grade_int_6a():
+        score = 77
+>       assert get_grade(score) == 'B'
+E       AssertionError: assert 'B+' == 'B'
+E         - B+
+E         + B
+
+test_student.py:41: AssertionError
+______________________________________________________________ test_grade_int_6b _______________________________________________________________
+
+    def test_grade_int_6b():
+        score = 74
+>       assert get_grade(score) == 'B'
+E       AssertionError: assert 'B+' == 'B'
+E         - B+
+E         + B
+
+test_student.py:45: AssertionError
+______________________________________________________________ test_grade_int_7a _______________________________________________________________
+
+    def test_grade_int_7a():
+        score = 73
+>       assert get_grade(score) == 'B-'
+E       AssertionError: assert 'B' == 'B-'
+E         - B
+E         + B-
+
+test_student.py:50: AssertionError
+______________________________________________________________ test_grade_int_7b _______________________________________________________________
+
+    def test_grade_int_7b():
+        score = 70
+>       assert get_grade(score) == 'B-'
+E       AssertionError: assert 'B' == 'B-'
+E         - B
+E         + B-
+
+test_student.py:54: AssertionError
+______________________________________________________________ test_grade_int_8a _______________________________________________________________
+
+    def test_grade_int_8a():
+        score = 69
+>       assert get_grade(score) == 'C+'
+E       AssertionError: assert 'B-' == 'C+'
+E         - B-
+E         + C+
+
+test_student.py:59: AssertionError
+______________________________________________________________ test_grade_int_8b _______________________________________________________________
+
+    def test_grade_int_8b():
+        score = 66
+>       assert get_grade(score) == 'C+'
+E       AssertionError: assert 'B-' == 'C+'
+E         - B-
+E         + C+
+
+test_student.py:63: AssertionError
+______________________________________________________________ test_grade_int_9a _______________________________________________________________
+
+    def test_grade_int_9a():
+        score = 65
+>       assert get_grade(score) == 'C'
+E       AssertionError: assert 'C+' == 'C'
+E         - C+
+E         + C
+
+test_student.py:67: AssertionError
+______________________________________________________________ test_grade_int_9b _______________________________________________________________
+
+    def test_grade_int_9b():
+        score = 62
+>       assert get_grade(score) == 'C'
+E       AssertionError: assert 'C+' == 'C'
+E         - C+
+E         + C
+
+test_student.py:71: AssertionError
+______________________________________________________________ test_grade_int_10b ______________________________________________________________
+
+    def test_grade_int_10b():
+        score = 58
+>       assert get_grade(score) == 'C-'
+E       AssertionError: assert 'C' == 'C-'
+E         - C
+E         + C-
+
+test_student.py:80: AssertionError
+______________________________________________________________ test_grade_int_12a ______________________________________________________________
+
+    def test_grade_int_12a():
+        score = 53
+>       assert get_grade(score) == 'D'
+E       AssertionError: assert 'D+' == 'D'
+E         - D+
+E         + D
+
+test_student.py:92: AssertionError
+______________________________________________________________ test_grade_int_12b ______________________________________________________________
+
+    def test_grade_int_12b():
+        score = 50
+>       assert get_grade(score) == 'D'
+E       AssertionError: assert 'D+' == 'D'
+E         - D+
+E         + D
+
+test_student.py:96: AssertionError
+_______________________________________________________________ test_sgpa_int_1 ________________________________________________________________
+
+    def test_sgpa_int_1():
+>       assert abs(calculate_sgpa('A', 'A', 'C') - 3.3333) < epsilon
+E       AssertionError: assert 3.3333 < 0.0001
+E        +  where 3.3333 = abs((0 - 3.3333))
+E        +    where 0 = calculate_sgpa('A', 'A', 'C')
+
+test_student.py:108: AssertionError
+_______________________________________________________________ test_sgpa_int_3 ________________________________________________________________
+
+    def test_sgpa_int_3():
+>       assert abs(calculate_sgpa('A', 'C', 'F') - 2.0) < epsilon
+E       AssertionError: assert 2.0 < 0.0001
+E        +  where 2.0 = abs((0 - 2.0))
+E        +    where 0 = calculate_sgpa('A', 'C', 'F')
+
+test_student.py:116: AssertionError
+===================================================== 19 failed, 4 passed in 0.48 seconds ======================================================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 0 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a04 import get_grade, calculate_sgpa
+E     File "/home/mehboob/Desktop/assignment17/a04.py", line 70
+E       if total_number_of_subjects =0:
+E                                   ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.73 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 23 items
+
+test_student.py .FFFFFFFFFFFFFFFFF.FFFF
+
+=================================== FAILURES ===================================
+_______________________________ test_grade_int_2 _______________________________
+
+    def test_grade_int_2():
+        score = 86
+>       assert get_grade(score) == 'A'
+E       AssertionError: assert 'A+' == 'A'
+E         - A+
+E         + A
+
+test_student.py:15: AssertionError
+_______________________________ test_grade_int_3 _______________________________
+
+    def test_grade_int_3():
+        score = 89
+>       assert get_grade(score) == 'A'
+E       AssertionError: assert 'A+' == 'A'
+E         - A+
+E         + A
+
+test_student.py:19: AssertionError
+______________________________ test_grade_int_4a _______________________________
+
+    def test_grade_int_4a():
+        score = 85
+>       assert get_grade(score) == 'A-'
+E       AssertionError: assert 'A' == 'A-'
+E         - A
+E         + A-
+
+test_student.py:24: AssertionError
+______________________________ test_grade_int_4b _______________________________
+
+    def test_grade_int_4b():
+        score = 82
+>       assert get_grade(score) == 'A-'
+E       AssertionError: assert 'A' == 'A-'
+E         - A
+E         + A-
+
+test_student.py:28: AssertionError
+______________________________ test_grade_int_5a _______________________________
+
+    def test_grade_int_5a():
+        score = 81
+>       assert get_grade(score) == 'B+'
+E       AssertionError: assert 'A-' == 'B+'
+E         - A-
+E         + B+
+
+test_student.py:32: AssertionError
+______________________________ test_grade_int_5b _______________________________
+
+    def test_grade_int_5b():
+        score = 78
+>       assert get_grade(score) == 'B+'
+E       AssertionError: assert 'A-' == 'B+'
+E         - A-
+E         + B+
+
+test_student.py:36: AssertionError
+______________________________ test_grade_int_6a _______________________________
+
+    def test_grade_int_6a():
+        score = 77
+>       assert get_grade(score) == 'B'
+E       AssertionError: assert 'B+' == 'B'
+E         - B+
+E         + B
+
+test_student.py:41: AssertionError
+______________________________ test_grade_int_6b _______________________________
+
+    def test_grade_int_6b():
+        score = 74
+>       assert get_grade(score) == 'B'
+E       AssertionError: assert 'B+' == 'B'
+E         - B+
+E         + B
+
+test_student.py:45: AssertionError
+______________________________ test_grade_int_7a _______________________________
+
+    def test_grade_int_7a():
+        score = 73
+>       assert get_grade(score) == 'B-'
+E       AssertionError: assert 'B' == 'B-'
+E         - B
+E         + B-
+
+test_student.py:50: AssertionError
+______________________________ test_grade_int_7b _______________________________
+
+    def test_grade_int_7b():
+        score = 70
+>       assert get_grade(score) == 'B-'
+E       AssertionError: assert 'B' == 'B-'
+E         - B
+E         + B-
+
+test_student.py:54: AssertionError
+______________________________ test_grade_int_8a _______________________________
+
+    def test_grade_int_8a():
+        score = 69
+>       assert get_grade(score) == 'C+'
+E       AssertionError: assert 'B-' == 'C+'
+E         - B-
+E         + C+
+
+test_student.py:59: AssertionError
+______________________________ test_grade_int_8b _______________________________
+
+    def test_grade_int_8b():
+        score = 66
+>       assert get_grade(score) == 'C+'
+E       AssertionError: assert 'B-' == 'C+'
+E         - B-
+E         + C+
+
+test_student.py:63: AssertionError
+______________________________ test_grade_int_9a _______________________________
+
+    def test_grade_int_9a():
+        score = 65
+>       assert get_grade(score) == 'C'
+E       AssertionError: assert 'C+' == 'C'
+E         - C+
+E         + C
+
+test_student.py:67: AssertionError
+______________________________ test_grade_int_9b _______________________________
+
+    def test_grade_int_9b():
+        score = 62
+>       assert get_grade(score) == 'C'
+E       AssertionError: assert 'C+' == 'C'
+E         - C+
+E         + C
+
+test_student.py:71: AssertionError
+______________________________ test_grade_int_10b ______________________________
+
+    def test_grade_int_10b():
+        score = 58
+>       assert get_grade(score) == 'C-'
+E       AssertionError: assert 'C' == 'C-'
+E         - C
+E         + C-
+
+test_student.py:80: AssertionError
+______________________________ test_grade_int_12a ______________________________
+
+    def test_grade_int_12a():
+        score = 53
+>       assert get_grade(score) == 'D'
+E       AssertionError: assert 'D+' == 'D'
+E         - D+
+E         + D
+
+test_student.py:92: AssertionError
+______________________________ test_grade_int_12b ______________________________
+
+    def test_grade_int_12b():
+        score = 50
+>       assert get_grade(score) == 'D'
+E       AssertionError: assert 'D+' == 'D'
+E         - D+
+E         + D
+
+test_student.py:96: AssertionError
+_______________________________ test_sgpa_int_1 ________________________________
+
+    def test_sgpa_int_1():
+>       assert abs(calculate_sgpa('A', 'A', 'C') - 3.3333) < epsilon
+
+test_student.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'A', grade3 = 'C'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________ test_sgpa_int_2 ________________________________
+
+    def test_sgpa_int_2():
+>       assert abs(calculate_sgpa('F', 'F', 'F') - 0) < epsilon
+
+test_student.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________ test_sgpa_int_3 ________________________________
+
+    def test_sgpa_int_3():
+>       assert abs(calculate_sgpa('A', 'C', 'F') - 2.0) < epsilon
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'C', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________ test_sgpa_int_4 ________________________________
+
+    def test_sgpa_int_4():
+>       assert abs(calculate_sgpa('F', 'F', 'nothing') - 0) < epsilon
+
+test_student.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'nothing'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+===================== 21 failed, 2 passed in 0.47 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 23 items
+
+test_student.py .FFFFFFFFFFFFFFFFF.FFFF
+
+=================================== FAILURES ===================================
+_______________________________ test_grade_int_2 _______________________________
+
+    def test_grade_int_2():
+        score = 86
+>       assert get_grade(score) == 'A'
+E       AssertionError: assert 'A+' == 'A'
+E         - A+
+E         + A
+
+test_student.py:15: AssertionError
+_______________________________ test_grade_int_3 _______________________________
+
+    def test_grade_int_3():
+        score = 89
+>       assert get_grade(score) == 'A'
+E       AssertionError: assert 'A+' == 'A'
+E         - A+
+E         + A
+
+test_student.py:19: AssertionError
+______________________________ test_grade_int_4a _______________________________
+
+    def test_grade_int_4a():
+        score = 85
+>       assert get_grade(score) == 'A-'
+E       AssertionError: assert 'A' == 'A-'
+E         - A
+E         + A-
+
+test_student.py:24: AssertionError
+______________________________ test_grade_int_4b _______________________________
+
+    def test_grade_int_4b():
+        score = 82
+>       assert get_grade(score) == 'A-'
+E       AssertionError: assert 'A' == 'A-'
+E         - A
+E         + A-
+
+test_student.py:28: AssertionError
+______________________________ test_grade_int_5a _______________________________
+
+    def test_grade_int_5a():
+        score = 81
+>       assert get_grade(score) == 'B+'
+E       AssertionError: assert 'A-' == 'B+'
+E         - A-
+E         + B+
+
+test_student.py:32: AssertionError
+______________________________ test_grade_int_5b _______________________________
+
+    def test_grade_int_5b():
+        score = 78
+>       assert get_grade(score) == 'B+'
+E       AssertionError: assert 'A-' == 'B+'
+E         - A-
+E         + B+
+
+test_student.py:36: AssertionError
+______________________________ test_grade_int_6a _______________________________
+
+    def test_grade_int_6a():
+        score = 77
+>       assert get_grade(score) == 'B'
+E       AssertionError: assert 'B+' == 'B'
+E         - B+
+E         + B
+
+test_student.py:41: AssertionError
+______________________________ test_grade_int_6b _______________________________
+
+    def test_grade_int_6b():
+        score = 74
+>       assert get_grade(score) == 'B'
+E       AssertionError: assert 'B+' == 'B'
+E         - B+
+E         + B
+
+test_student.py:45: AssertionError
+______________________________ test_grade_int_7a _______________________________
+
+    def test_grade_int_7a():
+        score = 73
+>       assert get_grade(score) == 'B-'
+E       AssertionError: assert 'B' == 'B-'
+E         - B
+E         + B-
+
+test_student.py:50: AssertionError
+______________________________ test_grade_int_7b _______________________________
+
+    def test_grade_int_7b():
+        score = 70
+>       assert get_grade(score) == 'B-'
+E       AssertionError: assert 'B' == 'B-'
+E         - B
+E         + B-
+
+test_student.py:54: AssertionError
+______________________________ test_grade_int_8a _______________________________
+
+    def test_grade_int_8a():
+        score = 69
+>       assert get_grade(score) == 'C+'
+E       AssertionError: assert 'B-' == 'C+'
+E         - B-
+E         + C+
+
+test_student.py:59: AssertionError
+______________________________ test_grade_int_8b _______________________________
+
+    def test_grade_int_8b():
+        score = 66
+>       assert get_grade(score) == 'C+'
+E       AssertionError: assert 'B-' == 'C+'
+E         - B-
+E         + C+
+
+test_student.py:63: AssertionError
+______________________________ test_grade_int_9a _______________________________
+
+    def test_grade_int_9a():
+        score = 65
+>       assert get_grade(score) == 'C'
+E       AssertionError: assert 'C+' == 'C'
+E         - C+
+E         + C
+
+test_student.py:67: AssertionError
+______________________________ test_grade_int_9b _______________________________
+
+    def test_grade_int_9b():
+        score = 62
+>       assert get_grade(score) == 'C'
+E       AssertionError: assert 'C+' == 'C'
+E         - C+
+E         + C
+
+test_student.py:71: AssertionError
+______________________________ test_grade_int_10b ______________________________
+
+    def test_grade_int_10b():
+        score = 58
+>       assert get_grade(score) == 'C-'
+E       AssertionError: assert 'C' == 'C-'
+E         - C
+E         + C-
+
+test_student.py:80: AssertionError
+______________________________ test_grade_int_12a ______________________________
+
+    def test_grade_int_12a():
+        score = 53
+>       assert get_grade(score) == 'D'
+E       AssertionError: assert 'D+' == 'D'
+E         - D+
+E         + D
+
+test_student.py:92: AssertionError
+______________________________ test_grade_int_12b ______________________________
+
+    def test_grade_int_12b():
+        score = 50
+>       assert get_grade(score) == 'D'
+E       AssertionError: assert 'D+' == 'D'
+E         - D+
+E         + D
+
+test_student.py:96: AssertionError
+_______________________________ test_sgpa_int_1 ________________________________
+
+    def test_sgpa_int_1():
+>       assert abs(calculate_sgpa('A', 'A', 'C') - 3.3333) < epsilon
+
+test_student.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'A', grade3 = 'C'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________ test_sgpa_int_2 ________________________________
+
+    def test_sgpa_int_2():
+>       assert abs(calculate_sgpa('F', 'F', 'F') - 0) < epsilon
+
+test_student.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________ test_sgpa_int_3 ________________________________
+
+    def test_sgpa_int_3():
+>       assert abs(calculate_sgpa('A', 'C', 'F') - 2.0) < epsilon
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'C', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________ test_sgpa_int_4 ________________________________
+
+    def test_sgpa_int_4():
+>       assert abs(calculate_sgpa('F', 'F', 'nothing') - 0) < epsilon
+
+test_student.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'nothing'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+===================== 21 failed, 2 passed in 0.44 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 23 items
+
+test_student.py ...................FFFF
+
+=================================== FAILURES ===================================
+_______________________________ test_sgpa_int_1 ________________________________
+
+    def test_sgpa_int_1():
+>       assert abs(calculate_sgpa('A', 'A', 'C') - 3.3333) < epsilon
+
+test_student.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'A', grade3 = 'C'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________ test_sgpa_int_2 ________________________________
+
+    def test_sgpa_int_2():
+>       assert abs(calculate_sgpa('F', 'F', 'F') - 0) < epsilon
+
+test_student.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________ test_sgpa_int_3 ________________________________
+
+    def test_sgpa_int_3():
+>       assert abs(calculate_sgpa('A', 'C', 'F') - 2.0) < epsilon
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'C', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________ test_sgpa_int_4 ________________________________
+
+    def test_sgpa_int_4():
+>       assert abs(calculate_sgpa('F', 'F', 'nothing') - 0) < epsilon
+
+test_student.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'nothing'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+===================== 4 failed, 19 passed in 0.26 seconds ======================
+============================================================= test session starts ==============================================================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 23 items
+
+test_student.py ...................FFFF
+
+=================================================================== FAILURES ===================================================================
+_______________________________________________________________ test_sgpa_int_1 ________________________________________________________________
+
+    def test_sgpa_int_1():
+>       assert abs(calculate_sgpa('A', 'A', 'C') - 3.3333) < epsilon
+
+test_student.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'A', grade3 = 'C'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________________________________________ test_sgpa_int_2 ________________________________________________________________
+
+    def test_sgpa_int_2():
+>       assert abs(calculate_sgpa('F', 'F', 'F') - 0) < epsilon
+
+test_student.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________________________________________ test_sgpa_int_3 ________________________________________________________________
+
+    def test_sgpa_int_3():
+>       assert abs(calculate_sgpa('A', 'C', 'F') - 2.0) < epsilon
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'C', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+_______________________________________________________________ test_sgpa_int_4 ________________________________________________________________
+
+    def test_sgpa_int_4():
+>       assert abs(calculate_sgpa('F', 'F', 'nothing') - 0) < epsilon
+
+test_student.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'nothing'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:64: UnboundLocalError
+===================================================== 4 failed, 19 passed in 0.26 seconds ======================================================
+============================================================= test session starts ==============================================================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 0 items / 1 errors
+
+==================================================================== ERRORS ====================================================================
+_______________________________________________________ ERROR collecting test_student.py _______________________________________________________
+../../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a04 import get_grade, calculate_sgpa
+E     File "/home/mehboob/Desktop/assignment17/a04.py", line 74
+E       if total_number_of_subjects =0:
+E                                   ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+=========================================================== 1 error in 0.74 seconds ============================================================
+============================================================= test session starts ==============================================================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 23 items
+
+test_student.py ...................FFFF
+
+=================================================================== FAILURES ===================================================================
+_______________________________________________________________ test_sgpa_int_1 ________________________________________________________________
+
+    def test_sgpa_int_1():
+>       assert abs(calculate_sgpa('A', 'A', 'C') - 3.3333) < epsilon
+
+test_student.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'A', grade3 = 'C'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:66: UnboundLocalError
+_______________________________________________________________ test_sgpa_int_2 ________________________________________________________________
+
+    def test_sgpa_int_2():
+>       assert abs(calculate_sgpa('F', 'F', 'F') - 0) < epsilon
+
+test_student.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:66: UnboundLocalError
+_______________________________________________________________ test_sgpa_int_3 ________________________________________________________________
+
+    def test_sgpa_int_3():
+>       assert abs(calculate_sgpa('A', 'C', 'F') - 2.0) < epsilon
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'A', grade2 = 'C', grade3 = 'F'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:66: UnboundLocalError
+_______________________________________________________________ test_sgpa_int_4 ________________________________________________________________
+
+    def test_sgpa_int_4():
+>       assert abs(calculate_sgpa('F', 'F', 'nothing') - 0) < epsilon
+
+test_student.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+grade1 = 'F', grade2 = 'F', grade3 = 'nothing'
+
+    def calculate_sgpa(grade1,grade2,grade3):
+        total_marks = 0
+        total_no_of_subject = 0
+        if grade1 != 'nothing':
+>           total_number_of_subjects = total_number_of_subjects + 1
+E           UnboundLocalError: local variable 'total_number_of_subjects' referenced before assignment
+
+a04.py:66: UnboundLocalError
+===================================================== 4 failed, 19 passed in 0.26 seconds ======================================================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment17, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 23 items
+
+test_student.py .......................
+
+========================== 23 passed in 0.14 seconds ===========================

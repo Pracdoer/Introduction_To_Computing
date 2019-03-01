@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment9, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items
+
+test_student.py ...
+
+=========================== 3 passed in 0.04 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment9, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items
+
+test_student.py ...
+
+=========================== 3 passed in 0.03 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/Fast/I.T.C/codes/Python codes/assignment9, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 0 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+import file mismatch:
+imported module 'assignment9.test_student' has this __file__ attribute:
+  /home/mehboob/Desktop/assignment9/test_student.py
+which is not the same as the test file we want to collect:
+  /home/Fast/I.T.C/codes/Python codes/assignment9/test_student.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.51 seconds ============================

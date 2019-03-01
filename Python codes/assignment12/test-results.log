@@ -1,0 +1,1688 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py FFFF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_avg_float ________________________________
+
+    def test_avg_float():
+        a = 1.0
+        b = 3.0
+    
+>       assert abs(average(a, b) - 2.0) < epsilon
+E       NameError: global name 'average' is not defined
+
+test_student.py:13: NameError
+_________________________________ test_avg_int _________________________________
+
+    def test_avg_int():
+        a = 1
+        b = 2
+    
+>       assert abs(average(a, b) - 1.5) < epsilon
+E       NameError: global name 'average' is not defined
+
+test_student.py:20: NameError
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+E       NameError: global name 'sqrt' is not defined
+
+test_student.py:25: NameError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       NameError: global name 'improve_guess' is not defined
+
+test_student.py:31: NameError
+====================== 4 failed, 3 passed in 0.29 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+!!! Recursion detected (same locals & position)
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       assert 11.5 < 0.0001
+E        +  where 11.5 = abs((18.0 - 6.5))
+E        +    where 18.0 = improve_guess(4, 36)
+
+test_student.py:31: AssertionError
+====================== 2 failed, 5 passed in 0.29 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 41
+E       return new_guess
+E      ^
+E   IndentationError: unexpected indent
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.82 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+!!! Recursion detected (same locals & position)
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       assert 11.5 < 0.0001
+E        +  where 11.5 = abs((18.0 - 6.5))
+E        +    where 18.0 = improve_guess(4, 36)
+
+test_student.py:31: AssertionError
+====================== 2 failed, 5 passed in 0.26 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+!!! Recursion detected (same locals & position)
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       assert 11.5 < 0.0001
+E        +  where 11.5 = abs((18.0 - 6.5))
+E        +    where 18.0 = improve_guess(4, 36)
+
+test_student.py:31: AssertionError
+====================== 2 failed, 5 passed in 0.26 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+!!! Recursion detected (same locals & position)
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       assert 11.5 < 0.0001
+E        +  where 11.5 = abs((18.0 - 6.5))
+E        +    where 18.0 = improve_guess(4, 36)
+
+test_student.py:31: AssertionError
+====================== 2 failed, 5 passed in 0.29 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:9: in sqrt
+    if good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7f085fb06f50>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess -x) < 0.1:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:17: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.48 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:14: in sqrt
+    return sqrt(x, new_guess)
+a03.py:9: in sqrt
+    if good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7fd078fe7f50>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess -x) < 0.1:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:17: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.49 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 33
+E       if x and a < x
+E                    ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 1.10 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 33
+E       if x and a < x
+E                    ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 8
+E       if x and guess < 0
+E                        ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 8
+E       if x and guess < 0
+E                        ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py FFFF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_avg_float ________________________________
+
+    def test_avg_float():
+        a = 1.0
+        b = 3.0
+    
+>       assert abs(average(a, b) - 2.0) < epsilon
+E       assert 0.33333333333333326 < 0.0001
+E        +  where 0.33333333333333326 = abs((1.6666666666666667 - 2.0))
+E        +    where 1.6666666666666667 = average(1.0, 3.0)
+
+test_student.py:13: AssertionError
+_________________________________ test_avg_int _________________________________
+
+    def test_avg_int():
+        a = 1
+        b = 2
+    
+>       assert abs(average(a, b) - 1.5) < epsilon
+E       assert 0.5 < 0.0001
+E        +  where 0.5 = abs((1.0 - 1.5))
+E        +    where 1.0 = average(1, 2)
+
+test_student.py:20: AssertionError
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7ff975920e60>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess - x) < 0.00001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:18: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 4 failed, 3 passed in 0.19 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py FFFF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_avg_float ________________________________
+
+    def test_avg_float():
+        a = 1.0
+        b = 3.0
+    
+>       assert abs(average(a, b) - 2.0) < epsilon
+E       assert 0.33333333333333326 < 0.0001
+E        +  where 0.33333333333333326 = abs((1.6666666666666667 - 2.0))
+E        +    where 1.6666666666666667 = average(1.0, 3.0)
+
+test_student.py:13: AssertionError
+_________________________________ test_avg_int _________________________________
+
+    def test_avg_int():
+        a = 1
+        b = 2
+    
+>       assert abs(average(a, b) - 1.5) < epsilon
+E       assert 0.5 < 0.0001
+E        +  where 0.5 = abs((1.0 - 1.5))
+E        +    where 1.0 = average(1, 2)
+
+test_student.py:20: AssertionError
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7efca4820e60>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess - x) < 0.00001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:18: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 4 failed, 3 passed in 0.19 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7fee0af92e60>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess - x) < 0.00001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:18: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py FFFF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_avg_float ________________________________
+
+    def test_avg_float():
+        a = 1.0
+        b = 3.0
+    
+>       assert abs(average(a, b) - 2.0) < epsilon
+
+test_student.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = 1.0, a = 3.0
+
+    def average(x, a):
+        if x < 0:
+    	return None
+        else:
+>   	average = (a + b)/2.0
+E    NameError: global name 'b' is not defined
+
+a03.py:36: NameError
+_________________________________ test_avg_int _________________________________
+
+    def test_avg_int():
+        a = 1
+        b = 2
+    
+>       assert abs(average(a, b) - 1.5) < epsilon
+
+test_student.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = 1, a = 2
+
+    def average(x, a):
+        if x < 0:
+    	return None
+        else:
+>   	average = (a + b)/2.0
+E    NameError: global name 'b' is not defined
+
+a03.py:36: NameError
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:14: in sqrt
+    new_guess = improve_guess(guess, x)
+a03.py:47: in improve_guess
+    new_guess = improve_guess(x, a)
+a03.py:47: in improve_guess
+    new_guess = improve_guess(x, a)
+!!! Recursion detected (same locals & position)
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+
+test_student.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:47: in improve_guess
+    new_guess = improve_guess(x, a)
+a03.py:47: in improve_guess
+    new_guess = improve_guess(x, a)
+!!! Recursion detected (same locals & position)
+====================== 4 failed, 3 passed in 0.32 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 48
+E       return average
+E                    ^
+E   IndentationError: unindent does not match any outer indentation level
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 48
+E       return average
+E                    ^
+E   IndentationError: unindent does not match any outer indentation level
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 48
+E       return average
+E                    ^
+E   IndentationError: unindent does not match any outer indentation level
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 48
+E       return average
+E                    ^
+E   IndentationError: unindent does not match any outer indentation level
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:14: in sqrt
+    new_guess = improve_guess(guess, x)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = 0.0, a = 36
+
+    def improve_guess(x, a):
+        if x < 0:
+    	return None
+        else:
+>           average = (x, a)/2.0
+E           TypeError: unsupported operand type(s) for /: 'tuple' and 'float'
+
+a03.py:47: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+
+test_student.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = 4, a = 36
+
+    def improve_guess(x, a):
+        if x < 0:
+    	return None
+        else:
+>           average = (x, a)/2.0
+E           TypeError: unsupported operand type(s) for /: 'tuple' and 'float'
+
+a03.py:47: TypeError
+====================== 2 failed, 5 passed in 0.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7fa84a5fee60>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess - x) < 0.00001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:18: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7f56da14ce60>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess - x) < 0.00001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:18: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 44
+E       if x < and a < 0:
+E                ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7f677e059e60>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess - x) < 0.00001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:18: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7f66baf1de60>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess - x) < 0.00001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:18: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7f856b475e60>, x = 36
+
+    def good_enough(guess, x):
+>       if abs(guess * guess - x) < 0.00001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:18: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7facd5b40e60>, x = 36
+
+    def good_enough(guess, x):
+        if guess < 0:
+    	return None
+>       elif abs(guess * guess - x) < 0.00001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:20: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    return sqrt(x, new_guess)
+a03.py:10: in sqrt
+    elif good_enough(guess, x):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+guess = <function average at 0x7f23b907fe60>, x = 36
+
+    def good_enough(guess, x):
+        if guess < 0:
+    	return None
+>       elif abs(guess * guess - x) < 0.00000001:
+E       TypeError: unsupported operand type(s) for *: 'function' and 'function'
+
+a03.py:20: TypeError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+E       TypeError: unsupported operand type(s) for -: 'function' and 'float'
+
+test_student.py:31: TypeError
+====================== 2 failed, 5 passed in 0.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 30
+E       return c
+E      ^
+E   IndentationError: unexpected indent
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.99 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 38
+E       v = guess *  1.0000:
+E                          ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 19
+E       if (abs(float (guess * guess - y)) < 0.00000001:
+E                                                      ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.77 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 19
+E       if (abs(float (guess * guess - y)) < 0.00000001:
+E                                                      ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.92 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 20
+E       if (abs(float (guess * guess - y)) < 0.00001:
+E                                                   ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 39
+E       v = guess *  1.0000:
+E                          ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 39
+E       v = guess *  1.0000:
+E                          ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 38
+E       v = guess *  1.0000:
+E                          ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.76 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 38
+E       v = guess *  1.0000:
+E                          ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 38
+E       g = guess *  1.0000:
+E                          ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 38
+E       g = guess *  1.0000:
+E                          ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items / 1 errors
+
+==================================== ERRORS ====================================
+_______________________ ERROR collecting test_student.py _______________________
+../anaconda2/lib/python2.7/site-packages/_pytest/python.py:418: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=importmode)
+../anaconda2/lib/python2.7/site-packages/py/_path/local.py:662: in pyimport
+    __import__(modname)
+../anaconda2/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:216: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test_student.py:2: in <module>
+    from a03 import sqrt, average, improve_guess
+E     File "/home/mehboob/Desktop/a03.py", line 38
+E       g = guess *  1.0000:
+E                          ^
+E   SyntaxError: invalid syntax
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+=========================== 1 error in 0.75 seconds ============================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.06 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.06 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ..FF
+assignment9/test_student.py ...
+
+=================================== FAILURES ===================================
+________________________________ test_sqrt_int _________________________________
+
+    def test_sqrt_int():
+        v = 36
+>       assert abs(sqrt(v) - 6) < epsilon
+
+test_student.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+a03.py:15: in sqrt
+    new_guess = improve_guess(guess ,y)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = 0.0, y = 36
+
+    def improve_guess(f ,y):
+>       v = guess *  1.0000
+E       NameError: global name 'guess' is not defined
+
+a03.py:38: NameError
+______________________________ test_improve_guess ______________________________
+
+    def test_improve_guess():
+        n = 36
+        g = 4
+>       assert abs(improve_guess(g, n) - 6.5) < epsilon
+
+test_student.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = 4, y = 36
+
+    def improve_guess(f ,y):
+>       v = guess *  1.0000
+E       NameError: global name 'guess' is not defined
+
+a03.py:38: NameError
+====================== 2 failed, 5 passed in 0.19 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.06 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py ....
+assignment9/test_student.py ...
+
+=========================== 7 passed in 0.05 seconds ===========================

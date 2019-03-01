@@ -1,0 +1,126 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment48, inifile:
+plugins: timeout-1.2.0
+timeout: 10.0s method: signal
+collected 2 items
+
+test_student.py .F
+
+=================================== FAILURES ===================================
+__________________________________ test_hello __________________________________
+
+    def test_hello():
+        args = ['./' + fn + '.out']
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+    
+        ground = ['Hello world!', 'Hello world from cout ...']
+    
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+    
+>       assert out_stripped == ground
+E       AssertionError: assert ['Hello world...from cout...'] == ['Hello world!...rom cout ...']
+E         At index 1 diff: 'Hello world from cout...' != 'Hello world from cout ...'
+E         Use -v to get the full diff
+
+test_student.py:83: AssertionError
+====================== 1 failed, 1 passed in 6.96 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment48, inifile:
+plugins: timeout-1.2.0
+timeout: 10.0s method: signal
+collected 2 items
+
+test_student.py .F
+
+=================================== FAILURES ===================================
+__________________________________ test_hello __________________________________
+
+    def test_hello():
+        args = ['./' + fn + '.out']
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+    
+        ground = ['Hello world!', 'Hello world from cout ...']
+    
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+    
+>       assert out_stripped == ground
+E       AssertionError: assert ['Hello world...from cout...'] == ['Hello world!...rom cout ...']
+E         At index 1 diff: 'Hello world from cout...' != 'Hello world from cout ...'
+E         Use -v to get the full diff
+
+test_student.py:83: AssertionError
+====================== 1 failed, 1 passed in 4.74 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment48, inifile:
+plugins: timeout-1.2.0
+timeout: 10.0s method: signal
+collected 2 items
+
+test_student.py .F
+
+=================================== FAILURES ===================================
+__________________________________ test_hello __________________________________
+
+    def test_hello():
+        args = ['./' + fn + '.out']
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+    
+        ground = ['Hello world!', 'Hello world from cout ...']
+    
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+    
+>       assert out_stripped == ground
+E       AssertionError: assert ['Hello world...rom cout...!'] == ['Hello world!...rom cout ...']
+E         At index 1 diff: 'Hello world from cout...!' != 'Hello world from cout ...'
+E         Use -v to get the full diff
+
+test_student.py:83: AssertionError
+====================== 1 failed, 1 passed in 4.73 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment48, inifile:
+plugins: timeout-1.2.0
+timeout: 10.0s method: signal
+collected 2 items
+
+test_student.py .F
+
+=================================== FAILURES ===================================
+__________________________________ test_hello __________________________________
+
+    def test_hello():
+        args = ['./' + fn + '.out']
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+    
+        ground = ['Hello world!', 'Hello world from cout ...']
+    
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+    
+>       assert out_stripped == ground
+E       AssertionError: assert ['Hello world...m cout...! !'] == ['Hello world!...rom cout ...']
+E         At index 1 diff: 'Hello world from cout...! !' != 'Hello world from cout ...'
+E         Use -v to get the full diff
+
+test_student.py:83: AssertionError
+====================== 1 failed, 1 passed in 4.65 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment48, inifile:
+plugins: timeout-1.2.0
+timeout: 10.0s method: signal
+collected 2 items
+
+test_student.py ..
+
+=========================== 2 passed in 4.16 seconds ===========================

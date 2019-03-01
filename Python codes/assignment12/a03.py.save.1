@@ -1,0 +1,58 @@
+
+## IMPORTS GO HERE
+
+## END OF IMPORTS
+
+
+#### YOUR CODE FOR sqrt() FUNCTION GOES HERE ####
+def sqrt(x, guess = 0.0):
+    if x and guess < 0:
+	return None
+    elif good_enough(guess, x):
+	return guess
+
+    else:
+	new_guess = improve_guess(guess, x)
+	return sqrt(x, new_guess)
+
+def good_enough(guess, x):
+    if abs(guess * guess -x) < 0.000001:
+	return True
+    else:
+	return False
+
+def improve_guess(guess, x):
+    if guess < x:
+	return x + 10    else:
+	return guess - 1.00000
+
+#### End OF MARKER
+
+#### YOUR CODE FOR average() FUNCTION GOES HERE ####
+def average(x, a):
+    if x and a < x
+	return None
+    else:
+	average = (a + b)/2.0
+    	return average
+
+#### End OF MARKER
+
+
+def improve_guess(x, a):
+    if x and a < 0:
+	return None
+    else:
+
+	average(x/a, a)/2.0
+    	return average
+def average(x, a):
+    a = (x/a + a)/2.0
+
+#### End OF MARKER
+
+
+
+
+if __name__ == '__main__':
+    print sqrt(36)

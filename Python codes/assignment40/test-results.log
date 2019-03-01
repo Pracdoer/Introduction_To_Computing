@@ -1,0 +1,78 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment40, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items
+
+test_student.py ...
+
+=========================== 3 passed in 0.06 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment40, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 3 items
+
+test_student.py ...
+
+=========================== 3 passed in 0.03 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment40, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 6 items
+
+test_student.py .....F
+
+=================================== FAILURES ===================================
+__________________________ test_get_types_counts_s_3 ___________________________
+
+    def test_get_types_counts_s_3():
+        ret_val = get_types_counts({})
+>       assert len(ret_val) == 0
+E       TypeError: object of type 'int' has no len()
+
+test_student.py:111: TypeError
+====================== 1 failed, 5 passed in 0.27 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment40, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 6 items
+
+test_student.py .....F
+
+=================================== FAILURES ===================================
+__________________________ test_get_types_counts_s_3 ___________________________
+
+    def test_get_types_counts_s_3():
+        ret_val = get_types_counts({})
+>       assert len(ret_val) == 0
+E       TypeError: object of type 'int' has no len()
+
+test_student.py:111: TypeError
+====================== 1 failed, 5 passed in 0.15 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment40, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 6 items
+
+test_student.py ......
+
+=========================== 6 passed in 0.04 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment40, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 11 items
+
+test_student.py ...........
+
+========================== 11 passed in 0.14 seconds ===========================

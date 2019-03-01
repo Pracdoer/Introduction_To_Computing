@@ -1,0 +1,399 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment36, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 12 items
+
+test_student.py .......FFFFF
+
+=================================== FAILURES ===================================
+__________________________ test_find_top_student_s_1 ___________________________
+
+    def test_find_top_student_s_1():
+        results = [
+            ('p101111', 'Ali Khayam', 64, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 28.5, 83, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 1.6)
+        ]
+        results_out = ('p101111', 'Ali Khayam')
+>       assert find_top_student(results) == results_out
+E       NameError: global name 'find_top_student' is not defined
+
+test_student.py:88: NameError
+__________________________ test_find_top_student_s_2 ___________________________
+
+    def test_find_top_student_s_2():
+        results = [
+            ('p101111', 'Ali Khayam', 64, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 28.5, 83, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 1.6),
+            ('p101114', 'Jawad Mansoor', 87, None, None, 998.6)
+        ]
+        results_out = ('p101114', 'Jawad Mansoor')
+>       assert find_top_student(results) == results_out
+E       NameError: global name 'find_top_student' is not defined
+
+test_student.py:99: NameError
+__________________________ test_find_top_student_s_3 ___________________________
+
+    def test_find_top_student_s_3():
+        results = [
+            ('p101111', 'Ali Khayam', None, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 18.5, None, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 19.6),
+            ('p101114', 'Jawad Mansoor', 87, None, None, 908.6)
+        ]
+        results_out = ('p101114', 'Jawad Mansoor')
+>       assert find_top_student(results) == results_out
+E       NameError: global name 'find_top_student' is not defined
+
+test_student.py:110: NameError
+__________________________ test_find_top_student_s_4 ___________________________
+
+    def test_find_top_student_s_4():
+        results = [
+            ('p101111', 'Ali Khayam', None, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 18.5, None, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 19.6),
+            ('p101114', 'Jawad Mansoor', None, None, None, None)
+        ]
+        results_out = ('p101111', 'Ali Khayam')
+>       assert find_top_student(results) == results_out
+E       NameError: global name 'find_top_student' is not defined
+
+test_student.py:121: NameError
+__________________________ test_find_top_student_s_5 ___________________________
+
+    def test_find_top_student_s_5():
+        results = [
+            ('p101111', 'Ali Khayam', 1),
+            ('p101112', 'Mudasser Farooq', 1),
+            ('p101113', 'Tamleek Ali', 1),
+            ('p101114', 'Jawad Mansoor', 0)
+        ]
+        results_out = [('p101111', 'Ali Khayam'), ('p101112', 'Mudasser Farooq'), ('p101113', 'Tamleek Ali')]
+>       assert find_top_student(results) == results_out
+E       NameError: global name 'find_top_student' is not defined
+
+test_student.py:131: NameError
+====================== 5 failed, 7 passed in 0.27 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment36, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 12 items
+
+test_student.py .......FFFFF
+
+=================================== FAILURES ===================================
+__________________________ test_find_top_student_s_1 ___________________________
+
+    def test_find_top_student_s_1():
+        results = [
+            ('p101111', 'Ali Khayam', 64, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 28.5, 83, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 1.6)
+        ]
+        results_out = ('p101111', 'Ali Khayam')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101111', 'Ali Khayam')] == ('p101111', 'Ali Khayam')
+E         At index 0 diff: ('p101111', 'Ali Khayam') != 'p101111'
+E         Right contains more items, first extra item: 'Ali Khayam'
+E         Use -v to get the full diff
+
+test_student.py:88: AssertionError
+__________________________ test_find_top_student_s_2 ___________________________
+
+    def test_find_top_student_s_2():
+        results = [
+            ('p101111', 'Ali Khayam', 64, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 28.5, 83, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 1.6),
+            ('p101114', 'Jawad Mansoor', 87, None, None, 998.6)
+        ]
+        results_out = ('p101114', 'Jawad Mansoor')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101114', 'Jawad Mansoor')] == ('p101114', 'Jawad Mansoor')
+E         At index 0 diff: ('p101114', 'Jawad Mansoor') != 'p101114'
+E         Right contains more items, first extra item: 'Jawad Mansoor'
+E         Use -v to get the full diff
+
+test_student.py:99: AssertionError
+__________________________ test_find_top_student_s_3 ___________________________
+
+    def test_find_top_student_s_3():
+        results = [
+            ('p101111', 'Ali Khayam', None, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 18.5, None, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 19.6),
+            ('p101114', 'Jawad Mansoor', 87, None, None, 908.6)
+        ]
+        results_out = ('p101114', 'Jawad Mansoor')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101114', 'Jawad Mansoor')] == ('p101114', 'Jawad Mansoor')
+E         At index 0 diff: ('p101114', 'Jawad Mansoor') != 'p101114'
+E         Right contains more items, first extra item: 'Jawad Mansoor'
+E         Use -v to get the full diff
+
+test_student.py:110: AssertionError
+__________________________ test_find_top_student_s_4 ___________________________
+
+    def test_find_top_student_s_4():
+        results = [
+            ('p101111', 'Ali Khayam', None, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 18.5, None, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 19.6),
+            ('p101114', 'Jawad Mansoor', None, None, None, None)
+        ]
+        results_out = ('p101111', 'Ali Khayam')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101111', 'Ali Khayam')] == ('p101111', 'Ali Khayam')
+E         At index 0 diff: ('p101111', 'Ali Khayam') != 'p101111'
+E         Right contains more items, first extra item: 'Ali Khayam'
+E         Use -v to get the full diff
+
+test_student.py:121: AssertionError
+__________________________ test_find_top_student_s_5 ___________________________
+
+    def test_find_top_student_s_5():
+        results = [
+            ('p101111', 'Ali Khayam', 1),
+            ('p101112', 'Mudasser Farooq', 1),
+            ('p101113', 'Tamleek Ali', 1),
+            ('p101114', 'Jawad Mansoor', 0)
+        ]
+        results_out = [('p101111', 'Ali Khayam'), ('p101112', 'Mudasser Farooq'), ('p101113', 'Tamleek Ali')]
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101113', 'Tamleek Ali')] == [('p101111', 'A...'Tamleek Ali')]
+E         At index 0 diff: ('p101113', 'Tamleek Ali') != ('p101111', 'Ali Khayam')
+E         Right contains more items, first extra item: ('p101112', 'Mudasser Farooq')
+E         Use -v to get the full diff
+
+test_student.py:131: AssertionError
+====================== 5 failed, 7 passed in 0.32 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment36, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 12 items
+
+test_student.py .......FFFFF
+
+=================================== FAILURES ===================================
+__________________________ test_find_top_student_s_1 ___________________________
+
+    def test_find_top_student_s_1():
+        results = [
+            ('p101111', 'Ali Khayam', 64, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 28.5, 83, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 1.6)
+        ]
+        results_out = ('p101111', 'Ali Khayam')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101111', 'Ali Khayam')] == ('p101111', 'Ali Khayam')
+E         At index 0 diff: ('p101111', 'Ali Khayam') != 'p101111'
+E         Right contains more items, first extra item: 'Ali Khayam'
+E         Use -v to get the full diff
+
+test_student.py:88: AssertionError
+__________________________ test_find_top_student_s_2 ___________________________
+
+    def test_find_top_student_s_2():
+        results = [
+            ('p101111', 'Ali Khayam', 64, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 28.5, 83, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 1.6),
+            ('p101114', 'Jawad Mansoor', 87, None, None, 998.6)
+        ]
+        results_out = ('p101114', 'Jawad Mansoor')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101114', 'Jawad Mansoor')] == ('p101114', 'Jawad Mansoor')
+E         At index 0 diff: ('p101114', 'Jawad Mansoor') != 'p101114'
+E         Right contains more items, first extra item: 'Jawad Mansoor'
+E         Use -v to get the full diff
+
+test_student.py:99: AssertionError
+__________________________ test_find_top_student_s_3 ___________________________
+
+    def test_find_top_student_s_3():
+        results = [
+            ('p101111', 'Ali Khayam', None, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 18.5, None, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 19.6),
+            ('p101114', 'Jawad Mansoor', 87, None, None, 908.6)
+        ]
+        results_out = ('p101114', 'Jawad Mansoor')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101114', 'Jawad Mansoor')] == ('p101114', 'Jawad Mansoor')
+E         At index 0 diff: ('p101114', 'Jawad Mansoor') != 'p101114'
+E         Right contains more items, first extra item: 'Jawad Mansoor'
+E         Use -v to get the full diff
+
+test_student.py:110: AssertionError
+__________________________ test_find_top_student_s_4 ___________________________
+
+    def test_find_top_student_s_4():
+        results = [
+            ('p101111', 'Ali Khayam', None, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 18.5, None, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 19.6),
+            ('p101114', 'Jawad Mansoor', None, None, None, None)
+        ]
+        results_out = ('p101111', 'Ali Khayam')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101111', 'Ali Khayam')] == ('p101111', 'Ali Khayam')
+E         At index 0 diff: ('p101111', 'Ali Khayam') != 'p101111'
+E         Right contains more items, first extra item: 'Ali Khayam'
+E         Use -v to get the full diff
+
+test_student.py:121: AssertionError
+__________________________ test_find_top_student_s_5 ___________________________
+
+    def test_find_top_student_s_5():
+        results = [
+            ('p101111', 'Ali Khayam', 1),
+            ('p101112', 'Mudasser Farooq', 1),
+            ('p101113', 'Tamleek Ali', 1),
+            ('p101114', 'Jawad Mansoor', 0)
+        ]
+        results_out = [('p101111', 'Ali Khayam'), ('p101112', 'Mudasser Farooq'), ('p101113', 'Tamleek Ali')]
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101113', 'Tamleek Ali')] == [('p101111', 'A...'Tamleek Ali')]
+E         At index 0 diff: ('p101113', 'Tamleek Ali') != ('p101111', 'Ali Khayam')
+E         Right contains more items, first extra item: ('p101112', 'Mudasser Farooq')
+E         Use -v to get the full diff
+
+test_student.py:131: AssertionError
+====================== 5 failed, 7 passed in 0.24 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment36, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 8 items
+
+test_student.py .......F
+
+=================================== FAILURES ===================================
+__________________________ test_find_top_student_s_1 ___________________________
+
+    def test_find_top_student_s_1():
+        results = [
+            ('p101111', 'Ali Khayam', 64, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 28.5, 83, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 1.6)
+        ]
+        results_out = ('p101111', 'Ali Khayam')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101111', 'Ali Khayam')] == ('p101111', 'Ali Khayam')
+E         At index 0 diff: ('p101111', 'Ali Khayam') != 'p101111'
+E         Right contains more items, first extra item: 'Ali Khayam'
+E         Use -v to get the full diff
+
+test_student.py:88: AssertionError
+====================== 1 failed, 7 passed in 0.21 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment36, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 7 items
+
+test_student.py .......
+
+=========================== 7 passed in 0.08 seconds ===========================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment36, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 8 items
+
+test_student.py .......F
+
+=================================== FAILURES ===================================
+__________________________ test_find_top_student_s_1 ___________________________
+
+    def test_find_top_student_s_1():
+        results = [
+            ('p101111', 'Ali Khayam', 64, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 28.5, 83, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 1.6)
+        ]
+        results_out = ('p101111', 'Ali Khayam')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101111', 'Ali Khayam')] == ('p101111', 'Ali Khayam')
+E         At index 0 diff: ('p101111', 'Ali Khayam') != 'p101111'
+E         Right contains more items, first extra item: 'Ali Khayam'
+E         Use -v to get the full diff
+
+test_student.py:88: AssertionError
+====================== 1 failed, 7 passed in 0.23 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment36, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 8 items
+
+test_student.py .......F
+
+=================================== FAILURES ===================================
+__________________________ test_find_top_student_s_1 ___________________________
+
+    def test_find_top_student_s_1():
+        results = [
+            ('p101111', 'Ali Khayam', 64, 78.5, 89, 25, 99),
+            ('p101112', 'Mudasser Farooq', 14, 28.5, 83, 76),
+            ('p101113', 'Tamleek Ali', 87, None, 1.6)
+        ]
+        results_out = ('p101111', 'Ali Khayam')
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert [('p101111', 'Ali Khayam')] == ('p101111', 'Ali Khayam')
+E         At index 0 diff: ('p101111', 'Ali Khayam') != 'p101111'
+E         Right contains more items, first extra item: 'Ali Khayam'
+E         Use -v to get the full diff
+
+test_student.py:88: AssertionError
+====================== 1 failed, 7 passed in 0.24 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment36, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 12 items
+
+test_student.py ...........F
+
+=================================== FAILURES ===================================
+__________________________ test_find_top_student_s_5 ___________________________
+
+    def test_find_top_student_s_5():
+        results = [
+            ('p101111', 'Ali Khayam', 1),
+            ('p101112', 'Mudasser Farooq', 1),
+            ('p101113', 'Tamleek Ali', 1),
+            ('p101114', 'Jawad Mansoor', 0)
+        ]
+        results_out = [('p101111', 'Ali Khayam'), ('p101112', 'Mudasser Farooq'), ('p101113', 'Tamleek Ali')]
+>       assert find_top_student(results) == results_out
+E       AssertionError: assert ('p101113', 'Tamleek Ali') == [('p101111', 'Al... 'Tamleek Ali')]
+E         At index 0 diff: 'p101113' != ('p101111', 'Ali Khayam')
+E         Right contains more items, first extra item: ('p101113', 'Tamleek Ali')
+E         Use -v to get the full diff
+
+test_student.py:131: AssertionError
+===================== 1 failed, 11 passed in 0.40 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment36, inifile:
+plugins: timeout-1.2.0
+timeout: 3.0s method: signal
+collected 12 items
+
+test_student.py ............
+
+========================== 12 passed in 0.06 seconds ===========================

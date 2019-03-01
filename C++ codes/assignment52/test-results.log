@@ -1,0 +1,3806 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f24cb546390>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f24cb5777d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 42.55 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py ..FFFFFF
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_1 _________________________________
+
+    def test_fib_s_1():
+        args = ['6']
+        ground = ['8']
+>       check_cmd_output(ground, args)
+
+test_student.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['8'], extra_args = ['6']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['8']
+E         At index 0 diff: '0' != '8'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '6']
+_________________________________ test_fib_s_2 _________________________________
+
+    def test_fib_s_2():
+        args = ['14']
+        ground = ['377']
+>       check_cmd_output(ground, args)
+
+test_student.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['377'], extra_args = ['14']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['377']
+E         At index 0 diff: '0' != '377'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '14']
+_________________________________ test_fib_s_3 _________________________________
+
+    def test_fib_s_3():
+        args = ['24']
+        ground = ['46368']
+>       check_cmd_output(ground, args)
+
+test_student.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['46368'], extra_args = ['24']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['46368']
+E         At index 0 diff: '0' != '46368'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '24']
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['190392490709135'], extra_args = ['70']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['190392490709135']
+E         At index 0 diff: '0' != '190392490709135'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['10610209857723'], extra_args = ['64']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['10610209857723']
+E         At index 0 diff: '0' != '10610209857723'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+_________________________________ test_fib_s_6 _________________________________
+
+    def test_fib_s_6():
+        args = ['32']
+        ground = ['2178309']
+>       check_cmd_output(ground, args)
+
+test_student.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['2178309'], extra_args = ['32']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['2178309']
+E         At index 0 diff: '0' != '2178309'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '32']
+====================== 6 failed, 2 passed in 6.14 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py ..FFFFFF
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_1 _________________________________
+
+    def test_fib_s_1():
+        args = ['6']
+        ground = ['8']
+>       check_cmd_output(ground, args)
+
+test_student.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['8'], extra_args = ['6']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['8']
+E         At index 0 diff: '0' != '8'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '6']
+_________________________________ test_fib_s_2 _________________________________
+
+    def test_fib_s_2():
+        args = ['14']
+        ground = ['377']
+>       check_cmd_output(ground, args)
+
+test_student.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['377'], extra_args = ['14']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['377']
+E         At index 0 diff: '0' != '377'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '14']
+_________________________________ test_fib_s_3 _________________________________
+
+    def test_fib_s_3():
+        args = ['24']
+        ground = ['46368']
+>       check_cmd_output(ground, args)
+
+test_student.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['46368'], extra_args = ['24']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['46368']
+E         At index 0 diff: '0' != '46368'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '24']
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['190392490709135'], extra_args = ['70']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['190392490709135']
+E         At index 0 diff: '0' != '190392490709135'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['10610209857723'], extra_args = ['64']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['10610209857723']
+E         At index 0 diff: '0' != '10610209857723'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+_________________________________ test_fib_s_6 _________________________________
+
+    def test_fib_s_6():
+        args = ['32']
+        ground = ['2178309']
+>       check_cmd_output(ground, args)
+
+test_student.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['2178309'], extra_args = ['32']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['0'] == ['2178309']
+E         At index 0 diff: '0' != '2178309'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '32']
+====================== 6 failed, 2 passed in 2.08 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f8725dec7d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f8725e046d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 43.75 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f82e97ae7d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f82e97c66d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 45.77 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f75997267d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f759973e6d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 51.31 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fab7331b7d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fab733336d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 53.89 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fc61edc7550>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fc61ebfb290>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 46.14 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f1a367457d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f1a3675d6d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 47.18 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fdd674f57d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fdd6750d6d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 47.09 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f5346e5e7d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f5346e766d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 49.21 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .FFFFFFF
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_0 _________________________________
+
+    def test_fib_s_0():
+        args = ['0']
+        ground = ['0']
+>       check_cmd_output(ground, args)
+
+test_student.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['0'], extra_args = ['0']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['1'] == ['0']
+E         At index 0 diff: '1' != '0'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '0']
+_________________________________ test_fib_s_1 _________________________________
+
+    def test_fib_s_1():
+        args = ['6']
+        ground = ['8']
+>       check_cmd_output(ground, args)
+
+test_student.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['8'], extra_args = ['6']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['13'] == ['8']
+E         At index 0 diff: '13' != '8'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '6']
+_________________________________ test_fib_s_2 _________________________________
+
+    def test_fib_s_2():
+        args = ['14']
+        ground = ['377']
+>       check_cmd_output(ground, args)
+
+test_student.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['377'], extra_args = ['14']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['610'] == ['377']
+E         At index 0 diff: '610' != '377'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '14']
+_________________________________ test_fib_s_3 _________________________________
+
+    def test_fib_s_3():
+        args = ['24']
+        ground = ['46368']
+>       check_cmd_output(ground, args)
+
+test_student.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['46368'], extra_args = ['24']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['75025'] == ['46368']
+E         At index 0 diff: '75025' != '46368'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '24']
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['190392490709135'], extra_args = ['70']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['696897233'] == ['190392490709135']
+E         At index 0 diff: '696897233' != '190392490709135'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['10610209857723'], extra_args = ['64']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['695895453'] == ['10610209857723']
+E         At index 0 diff: '695895453' != '10610209857723'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+_________________________________ test_fib_s_6 _________________________________
+
+    def test_fib_s_6():
+        args = ['32']
+        ground = ['2178309']
+>       check_cmd_output(ground, args)
+
+test_student.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['2178309'], extra_args = ['32']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['3524578'] == ['2178309']
+E         At index 0 diff: '3524578' != '2178309'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '32']
+====================== 7 failed, 1 passed in 8.81 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f11b9a7c810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f11b9a976d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 42.84 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f45381e1810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f45381fc6d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 46.12 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f81c06b0810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f81c06cb6d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 56.96 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fa591f4f810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fa591f6a6d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 61.68 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f57c3327810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f57c33406d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 63.00 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f74f0eca810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f74f0ee16d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 68.03 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f15cd361810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f15cd37c6d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 70.59 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py F....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_compile _________________________________
+
+    def test_compile():
+>       res = compile_program()
+
+test_student.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:52: in compile_program
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fb8adac4190>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fb8ad8fb810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7fb8ad917e10>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 3 failed, 5 passed in 80.08 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py F....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_compile _________________________________
+
+    def test_compile():
+>       res = compile_program()
+
+test_student.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:52: in compile_program
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f517ceaa190>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f517cce1810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f517ccfde10>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 3 failed, 5 passed in 82.20 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py F....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_compile _________________________________
+
+    def test_compile():
+>       res = compile_program()
+
+test_student.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:52: in compile_program
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7ff250e9c190>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7ff250cd3810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7ff250cefe10>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 3 failed, 5 passed in 83.49 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py .....FF.
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f0194e19810>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test_student.py:72: in check_cmd_output
+    out, err = p.communicate()
+../../anaconda2/lib/python2.7/subprocess.py:479: in communicate
+    return self._communicate(input)
+../../anaconda2/lib/python2.7/subprocess.py:1098: in _communicate
+    stdout, stderr = self._communicate_with_poll(input)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <subprocess.Popen object at 0x7f0194e346d0>, input = None
+
+    def _communicate_with_poll(self, input):
+        stdout = None # Return
+        stderr = None # Return
+        fd2file = {}
+        fd2output = {}
+    
+        poller = select.poll()
+        def register_and_append(file_obj, eventmask):
+            poller.register(file_obj.fileno(), eventmask)
+            fd2file[file_obj.fileno()] = file_obj
+    
+        def close_unregister_and_remove(fd):
+            poller.unregister(fd)
+            fd2file[fd].close()
+            fd2file.pop(fd)
+    
+        if self.stdin and input:
+            register_and_append(self.stdin, select.POLLOUT)
+    
+        select_POLLIN_POLLPRI = select.POLLIN | select.POLLPRI
+        if self.stdout:
+            register_and_append(self.stdout, select_POLLIN_POLLPRI)
+            fd2output[self.stdout.fileno()] = stdout = []
+        if self.stderr:
+            register_and_append(self.stderr, select_POLLIN_POLLPRI)
+            fd2output[self.stderr.fileno()] = stderr = []
+    
+        input_offset = 0
+        while fd2file:
+            try:
+>               ready = poller.poll()
+E               Failed: Timeout >20.0s
+
+../../anaconda2/lib/python2.7/subprocess.py:1152: Failed
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+===================== 2 failed, 6 passed in 43.55 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py ..FFFFFF
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_1 _________________________________
+
+    def test_fib_s_1():
+        args = ['6']
+        ground = ['8']
+>       check_cmd_output(ground, args)
+
+test_student.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['8'], extra_args = ['6']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['5'] == ['8']
+E         At index 0 diff: '5' != '8'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '6']
+_________________________________ test_fib_s_2 _________________________________
+
+    def test_fib_s_2():
+        args = ['14']
+        ground = ['377']
+>       check_cmd_output(ground, args)
+
+test_student.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['377'], extra_args = ['14']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['233'] == ['377']
+E         At index 0 diff: '233' != '377'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '14']
+_________________________________ test_fib_s_3 _________________________________
+
+    def test_fib_s_3():
+        args = ['24']
+        ground = ['46368']
+>       check_cmd_output(ground, args)
+
+test_student.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['46368'], extra_args = ['24']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['28657'] == ['46368']
+E         At index 0 diff: '28657' != '46368'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '24']
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['190392490709135'], extra_args = ['70']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['-188547518'] == ['190392490709135']
+E         At index 0 diff: '-188547518' != '190392490709135'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['10610209857723'], extra_args = ['64']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['-944741150'] == ['10610209857723']
+E         At index 0 diff: '-944741150' != '10610209857723'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+_________________________________ test_fib_s_6 _________________________________
+
+    def test_fib_s_6():
+        args = ['32']
+        ground = ['2178309']
+>       check_cmd_output(ground, args)
+
+test_student.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['2178309'], extra_args = ['32']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['1346269'] == ['2178309']
+E         At index 0 diff: '1346269' != '2178309'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '32']
+====================== 6 failed, 2 passed in 8.87 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py ..FFFFFF
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_1 _________________________________
+
+    def test_fib_s_1():
+        args = ['6']
+        ground = ['8']
+>       check_cmd_output(ground, args)
+
+test_student.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['8'], extra_args = ['6']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['5'] == ['8']
+E         At index 0 diff: '5' != '8'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '6']
+_________________________________ test_fib_s_2 _________________________________
+
+    def test_fib_s_2():
+        args = ['14']
+        ground = ['377']
+>       check_cmd_output(ground, args)
+
+test_student.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['377'], extra_args = ['14']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['233'] == ['377']
+E         At index 0 diff: '233' != '377'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '14']
+_________________________________ test_fib_s_3 _________________________________
+
+    def test_fib_s_3():
+        args = ['24']
+        ground = ['46368']
+>       check_cmd_output(ground, args)
+
+test_student.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['46368'], extra_args = ['24']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['28657'] == ['46368']
+E         At index 0 diff: '28657' != '46368'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '24']
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['190392490709135'], extra_args = ['70']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['117669030460994'] == ['190392490709135']
+E         At index 0 diff: '117669030460994' != '190392490709135'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['10610209857723'], extra_args = ['64']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['6557470319842'] == ['10610209857723']
+E         At index 0 diff: '6557470319842' != '10610209857723'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+_________________________________ test_fib_s_6 _________________________________
+
+    def test_fib_s_6():
+        args = ['32']
+        ground = ['2178309']
+>       check_cmd_output(ground, args)
+
+test_student.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['2178309'], extra_args = ['32']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['1346269'] == ['2178309']
+E         At index 0 diff: '1346269' != '2178309'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '32']
+====================== 6 failed, 2 passed in 8.92 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py ..FFFFFF
+
+=================================== FAILURES ===================================
+_________________________________ test_fib_s_1 _________________________________
+
+    def test_fib_s_1():
+        args = ['6']
+        ground = ['8']
+>       check_cmd_output(ground, args)
+
+test_student.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['8'], extra_args = ['6']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['13'] == ['8']
+E         At index 0 diff: '13' != '8'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '6']
+_________________________________ test_fib_s_2 _________________________________
+
+    def test_fib_s_2():
+        args = ['14']
+        ground = ['377']
+>       check_cmd_output(ground, args)
+
+test_student.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['377'], extra_args = ['14']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['610'] == ['377']
+E         At index 0 diff: '610' != '377'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '14']
+_________________________________ test_fib_s_3 _________________________________
+
+    def test_fib_s_3():
+        args = ['24']
+        ground = ['46368']
+>       check_cmd_output(ground, args)
+
+test_student.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['46368'], extra_args = ['24']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['75025'] == ['46368']
+E         At index 0 diff: '75025' != '46368'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '24']
+_________________________________ test_fib_s_4 _________________________________
+
+    def test_fib_s_4():
+        args = ['70']
+        ground = ['190392490709135']
+>       check_cmd_output(ground, args)
+
+test_student.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['190392490709135'], extra_args = ['70']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['308061521170129'] == ['190392490709135']
+E         At index 0 diff: '308061521170129' != '190392490709135'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '70']
+_________________________________ test_fib_s_5 _________________________________
+
+    def test_fib_s_5():
+        args = ['64']
+        ground = ['10610209857723']
+>       check_cmd_output(ground, args)
+
+test_student.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['10610209857723'], extra_args = ['64']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['17167680177565'] == ['10610209857723']
+E         At index 0 diff: '17167680177565' != '10610209857723'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '64']
+_________________________________ test_fib_s_6 _________________________________
+
+    def test_fib_s_6():
+        args = ['32']
+        ground = ['2178309']
+>       check_cmd_output(ground, args)
+
+test_student.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ground = ['2178309'], extra_args = ['32']
+
+    def check_cmd_output(ground, extra_args = None):
+        args = ['./' + fn + '.out']
+        if extra_args is not None:
+            args.extend(extra_args)
+    
+        print "Running with args:", args
+    
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        # windows and it's \r issue
+        out_stripped = [i.strip() for i in out.split('\n') if i.strip() != '']
+>       assert out_stripped == ground
+E       AssertionError: assert ['3524578'] == ['2178309']
+E         At index 0 diff: '3524578' != '2178309'
+E         Use -v to get the full diff
+
+test_student.py:75: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running with args: ['./a12.out', '32']
+====================== 6 failed, 2 passed in 2.35 seconds ======================
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py ........
+
+=========================== 8 passed in 1.81 seconds ===========================
+============================================================= test session starts ==============================================================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment52, inifile:
+plugins: timeout-1.2.0
+timeout: 20.0s method: signal
+collected 8 items
+
+test_student.py ........
+
+=========================================================== 8 passed in 1.82 seconds ===========================================================

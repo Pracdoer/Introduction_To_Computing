@@ -1,0 +1,44 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.13, pytest-3.0.7, py-1.4.33, pluggy-0.4.0
+rootdir: /home/mehboob/Desktop/assignment29, inifile:
+plugins: timeout-1.2.0
+timeout: 5.0s method: signal
+collected 4 items
+
+test_student.py FFFF
+
+=================================== FAILURES ===================================
+_____________________________ test_get_diag_sum_1 ______________________________
+
+    def test_get_diag_sum_1():
+        v = 0
+>       assert get_diag_sum(v) == None
+E       NameError: global name 'get_diag_sum' is not defined
+
+test_student.py:9: NameError
+_____________________________ test_get_diag_sum_2 ______________________________
+
+    def test_get_diag_sum_2():
+        v = [2, 4, 6, 8, 10, 1090]
+        for i in v:
+>           assert get_diag_sum(i) == None
+E           NameError: global name 'get_diag_sum' is not defined
+
+test_student.py:15: NameError
+_____________________________ test_get_diag_sum_3 ______________________________
+
+    def test_get_diag_sum_3():
+        v = 5
+>       assert get_diag_sum(v) == 101
+E       NameError: global name 'get_diag_sum' is not defined
+
+test_student.py:20: NameError
+_____________________________ test_get_diag_sum_4 ______________________________
+
+    def test_get_diag_sum_4():
+        v = 15
+>       assert get_diag_sum(v) == 2381
+E       NameError: global name 'get_diag_sum' is not defined
+
+test_student.py:25: NameError
+=========================== 4 failed in 0.18 seconds ===========================
